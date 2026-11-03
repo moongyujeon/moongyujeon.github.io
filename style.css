@@ -3,11 +3,10 @@
   --muted: #666;
   --line: #e8e8e8;
   --link: #1d4f91;
-  --bg: #ffffff;
+  --bg: #fff;
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -31,14 +30,16 @@ a:hover { text-decoration: underline; }
   gap: 76px;
 }
 
-.sidebar { position: sticky; top: 42px; align-self: start; }
+.sidebar {
+  position: sticky;
+  top: 42px;
+  align-self: start;
+}
 
 .profile {
   display: block;
   width: 190px;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center 32%;
+  height: auto;
   border-radius: 5px;
   margin-bottom: 24px;
 }
@@ -69,11 +70,12 @@ h1 {
   margin-top: 18px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 7px;
   font-size: 0.94rem;
 }
 
-.content section + section { margin-top: 58px; }
+.content section + section { margin-top: 56px; }
 
 h2 {
   margin: 0 0 22px;
@@ -88,14 +90,42 @@ h2 {
   max-width: 720px;
   margin: 0;
   font-size: 1.12rem;
-  line-height: 1.75;
+  line-height: 1.78;
 }
+
+.edu-entry + .edu-entry { margin-top: 22px; }
+
+.edu-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.edu-head span {
+  flex: 0 0 auto;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.edu-degree {
+  margin: 4px 0 0;
+  color: #333;
+}
+
+.edu-detail {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.top-note { margin-bottom: 24px; }
 
 .pub {
   display: grid;
   grid-template-columns: 58px minmax(0, 1fr);
   gap: 18px;
-  padding: 0 0 28px;
+  padding: 0 0 30px;
 }
 
 .year {
@@ -112,16 +142,17 @@ h2 {
 
 .title:hover { color: var(--link); }
 
-.authors, .venue {
+.authors, .venue, .paper-links {
   margin: 5px 0 0;
   font-size: 0.94rem;
 }
 
 .authors { color: #444; }
 .venue { color: var(--muted); font-style: italic; }
+.paper-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.paper-links a { font-size: 0.9rem; }
 
 .note {
-  margin-top: 4px;
   color: #888;
   font-size: 0.86rem;
 }
@@ -136,6 +167,8 @@ h2 {
 
   .sidebar { position: static; }
   .profile { width: 150px; }
+  .edu-head { display: block; }
+  .edu-head span { display: block; margin-top: 2px; }
   .pub { grid-template-columns: 1fr; gap: 3px; }
   .year { font-size: 0.82rem; }
 }
