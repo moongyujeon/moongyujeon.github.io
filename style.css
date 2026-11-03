@@ -1,0 +1,141 @@
+:root {
+  --text: #171717;
+  --muted: #666;
+  --line: #e8e8e8;
+  --link: #1d4f91;
+  --bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.page {
+  width: min(1080px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 72px 0 96px;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 76px;
+}
+
+.sidebar { position: sticky; top: 42px; align-self: start; }
+
+.profile {
+  display: block;
+  width: 190px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 32%;
+  border-radius: 5px;
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.role {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.meta {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 0.94rem;
+}
+
+.meta p { margin: 3px 0; }
+
+.links {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 0.94rem;
+}
+
+.content section + section { margin-top: 58px; }
+
+h2 {
+  margin: 0 0 22px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lead {
+  max-width: 720px;
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 18px;
+  padding: 0 0 28px;
+}
+
+.year {
+  color: #888;
+  font-size: 0.9rem;
+  padding-top: 2px;
+}
+
+.title {
+  color: var(--text);
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.title:hover { color: var(--link); }
+
+.authors, .venue {
+  margin: 5px 0 0;
+  font-size: 0.94rem;
+}
+
+.authors { color: #444; }
+.venue { color: var(--muted); font-style: italic; }
+
+.note {
+  margin-top: 4px;
+  color: #888;
+  font-size: 0.86rem;
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(100% - 36px, 680px);
+    padding-top: 38px;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .sidebar { position: static; }
+  .profile { width: 150px; }
+  .pub { grid-template-columns: 1fr; gap: 3px; }
+  .year { font-size: 0.82rem; }
+}
